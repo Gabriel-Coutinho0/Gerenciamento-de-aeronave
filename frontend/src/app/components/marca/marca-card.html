@@ -1,0 +1,19 @@
+<mat-card class="manufacturer-card">
+  <mat-card-header>
+    <mat-card-title> Marcas </mat-card-title>
+  </mat-card-header>
+
+  <mat-card-content>
+    @for (mar of marca(); track mar.marca) {
+      <div class="dashboard-item">
+        <span>
+          {{ mar.marca }}
+        </span>
+
+        <strong>
+          {{ mar.quantity }}
+        </strong>
+      </div>
+    }
+  </mat-card-content>
+</mat-card>

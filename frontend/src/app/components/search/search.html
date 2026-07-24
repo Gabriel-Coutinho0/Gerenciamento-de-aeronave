@@ -1,0 +1,9 @@
+<mat-card class="search-card">
+  <mat-card-content>
+    <mat-form-field appearance="outline" class="search">
+      <mat-label> Pesquisar por modelo ou marca </mat-label>
+
+      <input matInput #searchInput (keyup)="search.emit(searchInput.value)" />
+    </mat-form-field>
+  </mat-card-content>
+</mat-card>

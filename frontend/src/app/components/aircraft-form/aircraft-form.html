@@ -1,0 +1,56 @@
+<mat-card>
+  <mat-card-content>
+    <form class="form" #formDirective="ngForm" [formGroup]="form" (ngSubmit)="onSubmit()">
+      <mat-form-field appearance="outline">
+        <mat-label>Marca</mat-label>
+
+        <mat-select formControlName="marca">
+          <mat-option value="EMBRAER">Embraer</mat-option>
+          <mat-option value="BOEING">Boeing</mat-option>
+          <mat-option value="AIRBUS">Airbus</mat-option>
+        </mat-select>
+
+        @if (hasError('marca', 'required')) {
+          <mat-error> A marca é obrigatória. </mat-error>
+        }
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Modelo</mat-label>
+
+        <input matInput formControlName="modelo" />
+
+        @if (hasError('modelo', 'required')) {
+          <mat-error> O modelo é obrigatório. </mat-error>
+        }
+      </mat-form-field>
+      <div class="row">
+        <mat-form-field appearance="outline">
+          <mat-label>Ano</mat-label>
+
+          <input matInput type="number" formControlName="ano" />
+
+          @if (hasError('ano', 'required')) {
+            <mat-error> O ano é obrigatório. </mat-error>
+          }
+
+          @if (hasError('ano', 'min')) {
+            <mat-error> O ano deve ser maior ou igual a 1903. </mat-error>
+          }
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Vendido</mat-label>
+
+          <mat-select formControlName="vendido">
+            <mat-option [value]="true"> Sim </mat-option>
+            <mat-option [value]="false"> Não </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+      <button mat-raised-button color="primary" type="submit" [disabled]="form.invalid">
+        Salvar
+      </button>
+    </form>
+  </mat-card-content>
+</mat-card>

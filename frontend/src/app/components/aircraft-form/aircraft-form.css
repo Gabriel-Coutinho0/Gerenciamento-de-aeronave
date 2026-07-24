@@ -1,0 +1,16 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+.row {
+  display: flex;
+  gap: 18px;
+}
+.row mat-form-field {
+  flex: 1;
+}
+button {
+  width: 140px;
+  align-self: flex-end;
+}

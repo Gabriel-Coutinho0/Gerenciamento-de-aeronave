@@ -1,0 +1,11 @@
+<div class="container">
+  <h1>Gestão de Aeronaves</h1>
+  <app-aircraft-form (save)="saveAircraft($event)"> </app-aircraft-form>
+  @if (dashboard(); as dashboard) {
+    <app-dashboard [dashboard]="dashboard"> </app-dashboard>
+    <app-search (search)="searchAircraft($event)"> </app-search>
+    <app-aircraft-table [aircrafts]="aircrafts()" (edit)="edit($event)" (delete)="delete($event)">
+    </app-aircraft-table>
+    <app-marca-card [marca]="dashboard.aircraftByMarca"> </app-marca-card>
+  }
+</div>
